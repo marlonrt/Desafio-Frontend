@@ -2,53 +2,83 @@
 <html>
 <head>
   <title>Desafio Frontend</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="style.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/palindrome.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Fonts - Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="style.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/palindrome.css">
 </head>
-<body>
-  <header>
-    <h1>Desafio Frontend</h1>
-  </header>
+<body style="font-family: 'Poppins', sans-serif;">
 
-  <div class="container">
-    <div class="challenge-card">
-      <h2>Desafio 1: Números Palíndromos</h2>
-      <p>Encontre números palíndromos em um intervalo:</p>
-      <div class="form-group">
-        <label for="start">Início do intervalo:</label>
-        <input type="text" id="start">
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h2 class="card-title">Palíndromos</h2>
+            <p class="card-text">Encontre números palíndromos em um intervalo:</p>
+            <div class="form-group">
+              <label for="start">Início do intervalo:</label>
+              <input type="text" id="start" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="end">Fim do intervalo:</label>
+              <input type="text" id="end" class="form-control">
+            </div>
+            <button onclick="findPalindromes()" class="btn btn-dark">Encontrar Palíndromos</button>
+            <div id="palindromeResults" class="mt-3"></div>
+            <button id="showMore" style="display: none;" onclick="showMorePalindromes()" class="btn btn-dark">Mostrar Mais</button>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="end">Fim do intervalo:</label>
-        <input type="text" id="end">
+
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h2 class="card-title">Simulador de Troco</h2>
+            <p class="card-text">Calcule o troco com notas de 1, 10 e 100 reais:</p>
+            <div class="form-group">
+              <label for="purchaseAmount">Valor da Compra:</label>
+              <input type="text" id="purchaseAmount" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for "givenAmount">Valor Entregue:</label>
+              <input type="text" id="givenAmount" class="form-control">
+            </div>
+            <button onclick="calculateChange()" class="btn btn-dark">Calcular Troco</button>
+            <div id="changeResults" class="mt-3"></div>
+          </div>
+        </div>
       </div>
-      <button onclick="findPalindromes()">Encontrar Palíndromos</button>
-      <div id="palindromeResults"></div>
-      <button id="showMore" style="display: none;" onclick="showMorePalindromes()">Mostrar Mais</button>
+      
+      <!-- Terceiro card para o desafio de veículos (carregado a partir de vehicle.html) -->
+      <div class="col-md-6" id="vehicleCard">
+      </div>
     </div>
+  </div>
 
-    <div class="challenge-card">
-      <h2>Desafio 2: Troco com Notas</h2>
-      <p>Calcule o troco com notas de 1, 10 e 100 reais:</p>
-      <div class="form-group">
-        <label for="purchaseAmount">Valor da Compra:</label>
-        <input type="text" id="purchaseAmount">
-      </div>
-      <div class="form-group">
-        <label for="givenAmount">Valor Entregue:</label>
-        <input type="text" id="givenAmount">
-      </div>
-      <button onclick="calculateChange()">Calcular Troco</button>
-      <div id="changeResults"></div>
-    </div>
-</div>
+  <!-- Bootstrap JavaScript (jQuery and Popper.js required) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/isPalindrome.js"></script>
+  <script src="js/calculateChange.js"></script>
+  <script src="js/vehicle.js"></script>
 
-<script src="js/isPalindrome.js"></script>
-<script src="js/calculateChange.js"></script>
+  <!-- Carregue o conteúdo do vehicle.html no terceiro card -->
+  <script>
+    $(document).ready(function () {
+      $.ajax({
+        url: 'vehicle.html',
+        dataType: 'html',
+        success: function (data) {
+          $('#vehicleCard').html(data);
+        }
+      });
+    });
+  </script>
 </body>
 </html>
