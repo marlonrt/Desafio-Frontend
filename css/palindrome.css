@@ -1,0 +1,13 @@
+/* Estilos para a saída de palíndromos */
+#palindromeResults {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.palindrome-number {
+    width: 10%; /* Defina o tamanho desejado para cada número */
+    text-align: center;
+    margin: 10px 0; /* Margem superior e inferior para espaçamento vertical */
+    max-height: 50px; /* Define a altura máxima para cada linha */
+}

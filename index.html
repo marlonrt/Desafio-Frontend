@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Desafio Frontend</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/palindrome.css">
+</head>
+<body>
+  <header>
+    <h1>Desafio Frontend</h1>
+  </header>
+
+  <div class="container">
+    <div class="challenge-card">
+      <h2>Desafio 1: Números Palíndromos</h2>
+      <p>Encontre números palíndromos em um intervalo:</p>
+      <div class="form-group">
+        <label for="start">Início do intervalo:</label>
+        <input type="text" id="start">
+      </div>
+      <div class="form-group">
+        <label for="end">Fim do intervalo:</label>
+        <input type="text" id="end">
+      </div>
+      <button onclick="findPalindromes()">Encontrar Palíndromos</button>
+      <div id="palindromeResults"></div>
+      <button id="showMore" style="display: none;" onclick="showMorePalindromes()">Mostrar Mais</button>
+    </div>
+
+    <div class="challenge-card">
+      <h2>Desafio 2: Troco com Notas</h2>
+      <p>Calcule o troco com notas de 1, 10 e 100 reais:</p>
+      <div class="form-group">
+        <label for="purchaseAmount">Valor da Compra:</label>
+        <input type="text" id="purchaseAmount">
+      </div>
+      <div class="form-group">
+        <label for="givenAmount">Valor Entregue:</label>
+        <input type="text" id="givenAmount">
+      </div>
+      <button onclick="calculateChange()">Calcular Troco</button>
+      <div id="changeResults"></div>
+    </div>
+</div>
+
+<script src="js/isPalindrome.js"></script>
+<script src="js/calculateChange.js"></script>
+</body>
+</html>
