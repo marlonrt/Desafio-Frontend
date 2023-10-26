@@ -55,31 +55,35 @@
         </div>
       </div>
       
-      <!-- Terceiro card para o desafio de veículos (carregado a partir de vehicle.html) -->
-      <div class="col-md-6" id="vehicleCard">
-      </div>
-      
-      <!-- Quarto card para o desafio de endereços (carregado a partir de address.html) -->
-      <div class="col-md-6" id="addressCard">
-        <div class="card mb-4">
-          <div class="card-body">
-            <!-- Conteúdo de address.html será inserido aqui -->
-            <div class="card mb-4">
-              <h2 class="card-title">Endereço</h2>
-              <p class="card-text">Informe um CEP por vez e obtenha informações:</p>
-              <div class="form-group">
-                <label for="cep">CEP:</label>
-                <input type="text" id="cep" class="form-control">
-              </div>
-              <button onclick="fetchCepData()" class="btn btn-dark">Obter Informações</button>
-              <div id="cepResults" class="mt-3"></div>
-            </div>
-            <div id="addressResult" class="text-center mt-3"></div>
-          </div>
+<!-- Terceiro card para o desafio de veículos (carregado a partir de vehicle.html) -->
+<div class="col-md-6" id="vehicleCard">
+</div>
+
+<!-- Quarto card para o desafio de endereços (carregado a partir de address.html) -->
+<div class="col-md-6" id="addressCard">
+  <div class="card mb-4">
+    <div class="card-body">
+      <!-- Conteúdo de address.html será inserido aqui -->
+      <div class="card mb-4">
+        <h2 class="card-title">Endereço</h2>
+        <p class="card-text">Informe um CEP por vez e obtenha informações:</p>
+        <div class="form-group">
+          <label for="cep">CEP:</label>
+          <input type="text" id="cep" class="form-control">
         </div>
+        <button onclick="fetchCepData()" class="btn btn-dark">Obter Informações</button>
+        <div id="cepResults" class="mt-3"></div>
       </div>
+      <div id="addressResult" class="text-center mt-3"></div>
     </div>
   </div>
+</div>
+
+<!-- Adicione a div do mapa abaixo dos dois últimos cards -->
+<div class="col-md-6" id="map">
+  <!-- Esta é a div onde o mapa será renderizado -->
+</div>
+
 
   <!-- Bootstrap JavaScript (jQuery and Popper.js required) -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -112,5 +116,7 @@
     });
     
   </script>
+ <!-- Adicione o script da API do Google Maps no final do corpo -->
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2pKZ2VzIrojoSkx0lY5OWAxVyNn0oHJc&callback=inicializarMapa"></script>
 </body>
 </html>
