@@ -3,26 +3,17 @@
   <p class="card-text">Informe os CEPs e obtenha informações:</p>
 
   <div class="form-group">
-    <label for "cep">CEP:</label>
+    <label for="cep">CEP:</label>
     <input type="text" id="cep" class="form-control">
   </div>
   <button onclick="fetchCepData()" class="btn btn-dark">Obter Informações</button>
-  <div id="cepResults" class="mt-3"></div>
+  <div id="cepResults" class="mt-3">
+    <h4>Resultado:</h4>
+    <ul id="addressList" class="list-inline">
+    </ul>
+  </div>
 </div>
-
 <script>
-  // Variável global para o mapa
-  var map;
-
-  // Função para inicializar o mapa
-  function initMap() {
-    var latLng = { lat: -23.550520, lng: -46.633308 }; // Coordenadas de São Paulo, por exemplo
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: latLng,
-      zoom: 13 // Ajuste o nível de zoom conforme necessário
-    });
-  }
-
   // Função para obter informações de um CEP
   function fetchCepData() {
     var cep = $('#cep').val();
@@ -43,39 +34,22 @@
           resultHtml = "CEP não encontrado";
         } else {
           resultHtml = `
-            <h4>Resultado:</h4>
-            <ul>
-              <li>CEP: ${data.cep}</li>
-              <li>Logradouro: ${data.logradouro}</li>
-              <li>Bairro: ${data.bairro}</li>
-              <li>Localidade: ${data.localidade}</li>
-              <li>UF: ${data.uf}</li>
+            <ul class="list-inline">
+              <li><strong>CEP:</strong> ${data.cep}</li>
+              <li><strong>Logradouro:</strong> ${data.logradouro}</li>
+              <li><strong>Bairro:</strong> ${data.bairro}</li>
+              <li><strong>Localidade:</strong> ${data.localidade}</li>
+              <li><strong>UF:</strong> ${data.uf}</li>
             </ul>
           `;
 
-          // Chame a função para mostrar a localização no mapa após obter os resultados do CEP
-          showLocationOnMap(data.localidade, data.uf);
+          $('#cep').val(''); // Limpar o campo CEP após a busca
         }
 
-        $('#cep').val(''); // Limpar o campo CEP após a busca
-        $('#cepResults').html(resultHtml);
+        $('#addressList').html(resultHtml);
       },
       error: function () {
         $('#cepResults').html("Erro ao obter informações do CEP");
-      }
-    });
-  }
-
-  // Função para mostrar a localização no mapa
-  function showLocationOnMap(localidade, uf) {
-    var geocoder = new google.maps.Geocoder();
-
-    geocoder.geocode({ address: localidade + ', ' + uf }, function (results, status) {
-      if (status === 'OK' && results[0] && map) {
-        map.setCenter(results[0].geometry.location);
-      } else {
-        // Trate o erro ou mostre uma mensagem ao usuário
-        console.error('Erro ao geocodificar o endereço');
       }
     });
   }
