@@ -27,22 +27,27 @@
        var resultHtml = '';
 
        if (data.erro) {
-         resultHtml = "CEP não encontrado";
-       } else {
-         resultHtml = `
-           <h4>Resultado:</h4>
-           <ul>
-             <li>CEP: ${data.cep}</li>
-             <li>Logradouro: ${data.logradouro}</li>
-             <li>Bairro: ${data.bairro}</li>
-             <li>Localidade: ${data.localidade}</li>
-             <li>UF: ${data.uf}</li>
-           </ul>
-         `;
-
-         // Chame a função para mostrar a localização no mapa após obter os resultados do CEP
-         showLocationOnMap(data.localidade, data.uf);
-       }
+        resultHtml = "CEP não encontrado";
+      } else {
+        let addressInfo = `${data.cep}, ${data.localidade}-${data.uf}.`;
+        
+        if (data.logradouro) {
+          addressInfo += ` ${data.logradouro}`;
+        }
+        
+        if (data.bairro) {
+          addressInfo += ` - ${data.bairro}.`;
+        }
+      
+        resultHtml = `
+          <h4>Resultado:</h4>
+          ${addressInfo}
+        `;
+      
+        // Chame a função para mostrar a localização no mapa após obter os resultados do CEP
+        showLocationOnMap(data.localidade, data.uf);
+      }
+      
 
        $('#cep').val(''); // Limpar o campo CEP após a busca
        $('#cepResults').html(resultHtml);
