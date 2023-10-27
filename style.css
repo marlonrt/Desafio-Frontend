@@ -81,4 +81,10 @@ header {
   background-color: #0056b3;
 }
 
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
 
