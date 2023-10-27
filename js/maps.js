@@ -1,10 +1,11 @@
 // Variáveis globais
 var map;
 var marker; // Variável global para o marcador
+var cepHistory = [];
 
 // Função para inicializar o mapa
 function initMap() {
-  var latLng = { lat: -23.550520, lng: -46.633308 }; // Coordenadas de São Paulo, por exemplo
+  var latLng = { lat: -19.9167, lng: -43.9345 }; // Coordenadas de Belo Horizonte
   map = new google.maps.Map(document.getElementById('map'), {
     center: latLng,
     zoom: 13 // Ajuste o nível de zoom conforme necessário
@@ -57,6 +58,18 @@ function fetchCepData() {
           <h4>Resultado:</h4>
           ${addressInfo}
         `;
+
+        // Crie um objeto com os dados do CEP
+        var cepData = {
+          cep: data.cep,
+          localidade: data.localidade,
+          uf: data.uf,
+          logradouro: data.logradouro || '',
+          bairro: data.bairro || ''
+        };
+
+        // Adicione o objeto ao array de histórico
+        cepHistory.push(cepData);
 
         // Chame a função para mostrar a localização no mapa após obter os resultados do CEP
         var location = data.localidade + ', ' + data.uf;
