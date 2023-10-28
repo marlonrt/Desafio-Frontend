@@ -25,6 +25,24 @@ function addMarkerToMap(location) {
   });
 }
 
+// Função para mostrar a localização no mapa
+function showLocationOnMap(location) {
+  var geocoder = new google.maps.Geocoder();
+
+  geocoder.geocode({ address: location }, function (results, status) {
+    if (status === 'OK' && results[0] && map) {
+      var locationData = results[0].geometry.location;
+      map.setCenter(locationData);
+
+      // Adicione um marcador no mapa
+      addMarkerToMap(locationData);
+    } else {
+      // Trate o erro ou mostre uma mensagem ao usuário
+      console.error('Erro ao geocodificar o endereço');
+    }
+  });
+}
+
 // Função para obter informações de um CEP
 function fetchCepData() {
   var cep = $('#cep').val();
@@ -72,7 +90,7 @@ function fetchCepData() {
         cepHistory.push(cepData);
 
         // Chame a função para mostrar a localização no mapa após obter os resultados do CEP
-        var location = data.localidade + ', ' + data.uf;
+        var location = data.localidade + ', ' + data.uf + ', ' + data.logradouro;
         showLocationOnMap(location);
       }
 

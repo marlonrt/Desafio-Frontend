@@ -6,8 +6,8 @@
 }
 
 .palindrome-number {
-    width: 10%; /* Defina o tamanho desejado para cada número */
+    flex-basis: calc(20% - 30px); /* 20% para 5 números por linha e subtrai 20px para a margem horizontal */
     text-align: center;
-    margin: 10px 0; /* Margem superior e inferior para espaçamento vertical */
-    max-height: 50px; /* Define a altura máxima para cada linha */
+    margin: 5px 5px; /* Margem superior e inferior para espaçamento vertical e horizontal */
+    max-height: 20px; /* Define a altura máxima para cada linha */
 }
