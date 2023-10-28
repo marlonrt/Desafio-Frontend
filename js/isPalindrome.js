@@ -1,7 +1,6 @@
 let palindromes = [];
-let currentBatch = 0;
-const batchSize = 20;
-let separator = ", "; // Pode ser "," ou "-"
+    let currentBatch = 0;
+    const batchSize = 20;
 
     function findPalindromes() {
       const startInput = parseInt(document.getElementById("start").value);

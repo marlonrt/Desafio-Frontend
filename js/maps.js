@@ -96,27 +96,12 @@ function fetchCepData() {
 
       $('#cep').val(''); // Limpar o campo CEP após a busca
       $('#cepResults').html(resultHtml);
+
+      // Role a página até o final
+      window.scrollTo(0, document.body.scrollHeight);
     },
     error: function () {
       $('#cepResults').html("Erro ao obter informações do CEP");
-    }
-  });
-}
-
-// Função para mostrar a localização no mapa
-function showLocationOnMap(location) {
-  var geocoder = new google.maps.Geocoder();
-
-  geocoder.geocode({ address: location }, function (results, status) {
-    if (status === 'OK' && results[0] && map) {
-      var locationData = results[0].geometry.location;
-      map.setCenter(locationData);
-
-      // Adicione um marcador no mapa
-      addMarkerToMap(locationData);
-    } else {
-      // Trate o erro ou mostre uma mensagem ao usuário
-      console.error('Erro ao geocodificar o endereço');
     }
   });
 }
