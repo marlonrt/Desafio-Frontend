@@ -42,7 +42,12 @@ Para executar a aplicação, siga estas etapas:
 
 ## Vídeo Explicativo
 
-https://github.com/marlonrt/Desafio-Frontend/assets/119014294/41b46ba3-02a6-4000-abb7-20d96aec4dfe
+
+
+https://github.com/marlonrt/Desafio-Frontend/assets/119014294/ef7b59c1-9cc6-45a0-b3cd-642c2c3a2d92
+
+
+
 
 ## Autor
 
