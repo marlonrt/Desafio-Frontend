@@ -33,6 +33,7 @@ A aplicação foi desenvolvida utilizando as seguintes tecnologias e recursos:
 
 ## Bônus
 
+Variável cepHistory armazena em array todos os CEP's pesquisados pelo client.
 Um diferencial desta solução é a integração com a API do Google Maps, que exibe um mapa com os CEPs marcados como "pins".
 
 ## Como Executar
