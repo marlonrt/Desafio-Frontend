@@ -2,6 +2,8 @@
 
 Este repositório contém a solução para o Desafio Frontend. A aplicação foi desenvolvida com foco no frontend, abordando quatro problemas distintos. Cada desafio foi resolvido e documentado.
 
+App: https://marlonrt.github.io/Desafio-Frontend/
+
 ## Desafios e Soluções
 
 Aqui estão os quatro desafios que foram abordados e suas respectivas soluções:
